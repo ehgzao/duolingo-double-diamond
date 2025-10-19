@@ -1,0 +1,3012 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://design.duolingo.com/86230c9ad10d9f08b785.svg" type="image/svg+xml">
+    <title>Duolingo Product Discovery - Double Diamond Journey</title>
+    <style>
+        :root {
+            /* Primitive Color Tokens */
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-teal-800: rgba(41, 150, 161, 1);
+            --color-red-400: rgba(255, 84, 89, 1);
+            --color-red-500: rgba(192, 21, 47, 1);
+            --color-orange-400: rgba(230, 129, 97, 1);
+            --color-orange-500: rgba(168, 75, 47, 1);
+
+            /* RGB versions for opacity control */
+            --color-brown-600-rgb: 94, 82, 64;
+            --color-teal-500-rgb: 33, 128, 141;
+            --color-slate-900-rgb: 19, 52, 59;
+            --color-slate-500-rgb: 98, 108, 113;
+            --color-red-500-rgb: 192, 21, 47;
+            --color-red-400-rgb: 255, 84, 89;
+            --color-orange-500-rgb: 168, 75, 47;
+            --color-orange-400-rgb: 230, 129, 97;
+
+            /* Background color tokens (Light Mode) */
+            --color-bg-1: rgba(59, 130, 246, 0.08); /* Light blue */
+            --color-bg-2: rgba(245, 158, 11, 0.08); /* Light yellow */
+            --color-bg-3: rgba(34, 197, 94, 0.08); /* Light green */
+            --color-bg-4: rgba(239, 68, 68, 0.08); /* Light red */
+            --color-bg-5: rgba(147, 51, 234, 0.08); /* Light purple */
+            --color-bg-6: rgba(249, 115, 22, 0.08); /* Light orange */
+            --color-bg-7: rgba(236, 72, 153, 0.08); /* Light pink */
+            --color-bg-8: rgba(6, 182, 212, 0.08); /* Light cyan */
+
+            /* Semantic Color Tokens (Light Mode) */
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--color-teal-500);
+            --color-primary-hover: var(--color-teal-600);
+            --color-primary-active: var(--color-teal-700);
+            --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+            --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-btn-primary-text: var(--color-cream-50);
+            --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-error: var(--color-red-500);
+            --color-success: var(--color-teal-500);
+            --color-warning: var(--color-orange-500);
+            --color-info: var(--color-slate-500);
+            --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+            --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+
+            /* RGB versions for opacity control */
+            --color-success-rgb: 33, 128, 141;
+            --color-error-rgb: 192, 21, 47;
+            --color-warning-rgb: 168, 75, 47;
+            --color-info-rgb: 98, 108, 113;
+
+            /* Typography */
+            --font-family-base: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            --font-size-xs: 11px;
+            --font-size-sm: 12px;
+            --font-size-base: 14px;
+            --font-size-md: 14px;
+            --font-size-lg: 16px;
+            --font-size-xl: 18px;
+            --font-size-2xl: 20px;
+            --font-size-3xl: 24px;
+            --font-size-4xl: 30px;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 550;
+            --font-weight-bold: 600;
+            --line-height-tight: 1.2;
+            --line-height-normal: 1.5;
+            --letter-spacing-tight: -0.01em;
+
+            /* Spacing */
+            --space-0: 0;
+            --space-1: 1px;
+            --space-2: 2px;
+            --space-4: 4px;
+            --space-6: 6px;
+            --space-8: 8px;
+            --space-10: 10px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+
+            /* Border Radius */
+            --radius-sm: 6px;
+            --radius-base: 8px;
+            --radius-md: 10px;
+            --radius-lg: 12px;
+            --radius-full: 9999px;
+
+            /* Shadows */
+            --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+            --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+
+            /* Animation */
+            --duration-fast: 150ms;
+            --duration-normal: 250ms;
+            --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+
+            /* Layout */
+            --container-sm: 640px;
+            --container-md: 768px;
+            --container-lg: 1024px;
+            --container-xl: 1280px;
+
+            /* Duolingo Specific Colors - GARANTIAS DE CONTRASTE */
+            --duolingo-green: #58CC02;
+            --duolingo-blue: #0F5F8C;
+            --duolingo-blue-light: #1CB0F6;
+            --duolingo-red: #FF4B4B;
+            --duolingo-yellow: #FFC800;
+            --duolingo-gold: #FFD700;
+            --duolingo-purple: #CE82FF;
+            --duolingo-orange: #FF9600;
+            --duolingo-dark: #0F3460;
+            --duolingo-text-main: #2B2B2B;
+            --duolingo-text-secondary: #4A4A4A;
+            --duolingo-text-accent: #1A7A3E;
+            --duolingo-text-link: #0F5F8C;
+            --duolingo-text-success: #0D6E2E;
+            --duolingo-light-green: #89E219;
+            --duolingo-bg: #F7F7F7;
+            --duolingo-white: #FFFFFF;
+            --duolingo-gray: #4A4A4A;
+            --duolingo-dark-gray: #2B2B2B;
+            
+            /* Regras de Contraste Obrigatórias */
+            /* Fundo Verde: SEMPRE texto branco */
+            /* Fundo Amarelo: SEMPRE texto preto */
+            /* Fundo Azul: SEMPRE texto branco */
+            /* Fundo Branco: texto preto */
+            /* Fundo Escuro: texto branco */
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-gray-400-rgb: 119, 124, 124;
+                --color-teal-300-rgb: 50, 184, 198;
+                --color-gray-300-rgb: 167, 169, 169;
+                --color-gray-200-rgb: 245, 245, 245;
+
+                --color-bg-1: rgba(29, 78, 216, 0.15);
+                --color-bg-2: rgba(180, 83, 9, 0.15);
+                --color-bg-3: rgba(21, 128, 61, 0.15);
+                --color-bg-4: rgba(185, 28, 28, 0.15);
+                --color-bg-5: rgba(107, 33, 168, 0.15);
+                --color-bg-6: rgba(194, 65, 12, 0.15);
+                --color-bg-7: rgba(190, 24, 93, 0.15);
+                --color-bg-8: rgba(8, 145, 178, 0.15);
+
+                --color-background: var(--color-charcoal-700);
+                --color-surface: var(--color-charcoal-800);
+                --color-text: var(--color-gray-200);
+                --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+                --color-primary: var(--color-teal-300);
+                --color-primary-hover: var(--color-teal-400);
+                --color-primary-active: var(--color-teal-800);
+                --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+                --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+                --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+                --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+                --color-error: var(--color-red-400);
+                --color-success: var(--color-teal-300);
+                --color-warning: var(--color-orange-400);
+                --color-info: var(--color-gray-300);
+                --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+                --color-btn-primary-text: var(--color-slate-900);
+                --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+                --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+                --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
+
+                --color-success-rgb: var(--color-teal-300-rgb);
+                --color-error-rgb: var(--color-red-400-rgb);
+                --color-warning-rgb: var(--color-orange-400-rgb);
+                --color-info-rgb: var(--color-gray-300-rgb);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: var(--font-size-base);
+            font-family: var(--font-family-base);
+            line-height: var(--line-height-normal);
+            color: var(--color-text);
+            background-color: var(--color-background);
+            -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
+            scroll-padding-top: 140px; /* height of header + nav + extra space */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-family-base);
+            line-height: 1.6;
+            color: var(--duolingo-text-main);
+            background-color: var(--duolingo-bg);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Fixo */
+        .header {
+            background: linear-gradient(135deg, var(--duolingo-green), var(--duolingo-light-green));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+            height: 70px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-decoration: none;
+            color: white;
+        }
+
+        .owl-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--duolingo-yellow);
+            border-radius: 50%;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Navigation Header */
+        .secondary-header {
+            position: fixed;
+            top: 70px; /* Below main header */
+            left: 0;
+            right: 0;
+            background: var(--bg-primary);
+            z-index: 998;
+            box-shadow: var(--shadow-sm);
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border-color);
+            transition: top 0.3s ease-in-out;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0 1rem;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scrollbar-width: none; /* Firefox */
+        }
+        .nav-links::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 0.5rem 0;
+            position: relative;
+            white-space: nowrap;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links li a.active {
+            color: var(--duolingo-green);
+        }
+
+        .nav-links li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: var(--duolingo-green);
+            border-radius: 2px;
+        }
+        
+        .nav-overlay {
+            display: none; /* Hidden on desktop */
+        }
+
+        /* Hamburger Menu for Mobile */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--duolingo-white);
+            z-index: 1000;
+            padding: 0;
+            margin-right: 1rem;
+        }
+
+        /* Botão de Tema - SEMPRE VISÍVEL */
+        .theme-toggle-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 3px solid var(--duolingo-green);
+            background: var(--duolingo-white);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            transition: all 0.3s ease;
+            font-size: 22px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1002;
+        }
+        
+        .theme-toggle-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(88, 204, 2, 0.3);
+        }
+        
+        .theme-icon {
+            line-height: 1;
+            display: block;
+        }
+        
+        /* Sistema de Temas - CORREÇÃO COMPLETA DE CONTRASTE */
+        :root {
+            /* Variáveis de tema padrão (claro) - ESCURECIDAS */
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F7F7F7;
+            --bg-card: #FFFFFF;
+            --text-primary: #2B2B2B; 
+            --text-secondary: #4A4A4A;
+            --text-muted: #5A5A5A; 
+            --border-color: #E0E0E0;
+            --text-on-dark: #FFFFFF;
+        }
+        
+        [data-theme="dark"] {
+            /* Background */
+            --bg-primary: #1A1A1A;
+            --bg-secondary: #2A2A2A;
+            --bg-card: #2F2F2F;
+            
+            /* Text */
+            --text-primary: #FFFFFF;
+            --text-secondary: #c9c9c9;
+            --text-muted: #B0B0B0;
+            --text-on-dark: #FFFFFF;
+            
+            /* Borders */
+            --border-color: #404040;
+        }
+        
+        /* Aplicar variáveis de tema */
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        /* Títulos de seção */
+        h1, h2, h3, h4 {
+            color: var(--text-primary);
+        }
+        
+        /* Corrigindo parágrafos secundários */
+        .section-description, p[style*="--color-text-secondary"], .dd-summary, .competitor-metric-label,
+        .timeline-content .section-description, .prototype-card .section-description, .competitor-card .section-description,
+        .dd-details p, .dd-details li, .timeline-details p, .intro-subtitle {
+            color: var(--text-secondary);
+        }
+        
+        p, li {
+            color: var(--text-primary);
+        }
+        
+        .timeline-details li, .dd-details li {
+             color: var(--text-secondary);
+        }
+
+
+        /* Cards gerais */
+        .gamification-intro,
+        .timeline-section,
+        .diamond-phases,
+        .prototypes,
+        .competitors,
+        .sources-section,
+        .double-diamond-intro,
+        .intro-section {
+            background: var(--bg-secondary);
+        }
+        
+        .timeline-content,
+        .phase-card,
+        .prototype-card,
+        .competitor-card,
+        .source-card,
+        .card,
+        .dd-card {
+            background: var(--bg-card);
+            border-color: var(--border-color);
+        }
+
+        .timeline-details, .phase-body .more-details-content, .prototype-expanded, .competitor-expanded, .dd-details {
+             background: var(--bg-secondary);
+        }
+        
+        /* Toast com tema adaptativo */
+        .toast-notification {
+            background: var(--bg-card);
+        }
+        
+        .toast-title {
+            color: var(--duolingo-green);
+        }
+        
+        .toast-message {
+            color: var(--text-secondary);
+        }
+
+        /* Contador de XP Fixo */
+        .xp-counter {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: var(--duolingo-yellow);
+            color: var(--duolingo-text-main);
+            padding: 0.8rem 1.2rem;
+            border-radius: 25px;
+            font-weight: 800;
+            z-index: 1001;
+            box-shadow: var(--shadow-md);
+            font-size: 1rem;
+            min-width: 160px;
+            text-align: center;
+            border: 3px solid var(--duolingo-green);
+        }
+
+        /* Barra de Progresso de Leitura */
+        .reading-progress-bar {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: 1001; /* Acima do header */
+        }
+
+        .reading-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #58CC02 0%, #1CB0F6 50%, #FFC800 75%, #FF4B4B 100%);
+            width: 0%;
+            transition: width 0.2s ease-out;
+        }
+
+        [data-theme="dark"] .reading-progress-bar {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Main Content */
+        .main {
+            margin-top: 140px; /* 70px header + 50px nav + 20px space */
+            padding-top: 2rem;
+        }
+
+        /* Nova Seção de Introdução */
+        .intro-section {
+            padding: 5rem 0;
+            text-align: center;
+        }
+        .intro-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+        .intro-subtitle {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+
+        /* Seção de Gamificação */
+        .gamification-intro {
+            padding: 4rem 0;
+            border-bottom: 4px solid var(--duolingo-green);
+            margin-bottom: 2rem;
+        }
+
+        .gamification-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .gamification-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+        }
+
+        /* Card de Gamificação - CONTRASTE CORRIGIDO */
+        .gamification-box {
+            background: linear-gradient(135deg, #58CC02, #4CAF00);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            color: #FFFFFF !important; /* BRANCO SEMPRE em fundo verde */
+            margin-bottom: 2rem;
+            text-align: left;
+            position: relative;
+        }
+        
+        .gamification-box h3,
+        .gamification-box p,
+        .gamification-box li,
+        .gamification-box strong {
+            color: #FFFFFF !important;
+        }
+        
+        .gamification-box h3 {
+            font-weight: 700;
+        }
+        
+        .gamification-box p {
+            line-height: 1.6;
+        }
+        
+        .gamification-box li {
+            font-weight: 600;
+        }
+        
+        .gamification-box strong {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Botão "EXPERIMENTE CLICAR AQUI" - CONTRASTE CORRIGIDO */
+        .first-click-btn {
+            background: #FFD700 !important; /* Amarelo ouro */
+            color: #2B2B2B !important; /* PRETO para contraste */
+            border: none;
+            padding: 20px 40px;
+            font-size: 24px;
+            font-weight: 900;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            text-transform: uppercase;
+        }
+
+        .first-click-btn:hover {
+            transform: scale(1.05);
+            background: #FFC800 !important;
+            box-shadow: 0 12px 30px rgba(255, 199, 0, 0.5);
+        }
+
+        /* Timeline */
+        .timeline-section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--duolingo-green), var(--duolingo-blue), var(--duolingo-purple), var(--duolingo-yellow));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 3rem 0;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .timeline-item:nth-child(odd) {
+            text-align: right;
+            padding-right: calc(50% + 5rem);
+        }
+
+        .timeline-item:nth-child(even) {
+            text-align: left;
+            padding-left: calc(50% + 5rem);
+        }
+
+        .timeline-year {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--duolingo-green);
+            color: white;
+            min-width: 80px;
+            min-height: 80px;
+            max-width: 120px;
+            max-height: 120px;
+            width: fit-content;
+            height: fit-content;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            z-index: 10;
+            box-shadow: 0 0 0 4px white, var(--shadow-md);
+            padding: 10px;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .phase-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .phase-discover { background: var(--duolingo-text-link); color: white; }
+        .phase-define { background: var(--duolingo-text-accent); color: white; }
+        .phase-develop { background: var(--duolingo-yellow); color: var(--duolingo-text-main); }
+        .phase-deliver { background: var(--duolingo-purple); color: white; }
+
+        /* Diamond Phases */
+        .diamond-phases {
+            padding: 4rem 0;
+        }
+
+        .phases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .phase-card {
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            background: var(--bg-card);
+            display: flex; /* Garante que os cards se alinhem */
+            flex-direction: column; /* Organiza o conteúdo do card verticalmente */
+        }
+        
+        .phase-card.phase-discover { border-color: #1CB0F6; }
+        .phase-card.phase-define { border-color: #58CC02; }
+        .phase-card.phase-develop { border-color: #FFC800; }
+        .phase-card.phase-deliver { border-color: var(--duolingo-purple); }
+
+        .phase-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .phase-header {
+            padding: 2rem;
+            color: white;
+            text-align: center;
+            border-radius: 6px 6px 0 0;
+        }
+
+        .phase-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .phase-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: white !important;
+        }
+
+        .phase-body {
+            padding: 2rem;
+            background: var(--bg-card);
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; /* Faz o corpo do card crescer */
+        }
+
+        /* Protótipos */
+        .prototypes {
+            padding: 4rem 0;
+        }
+
+        .prototypes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .prototype-card {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .prototype-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Competidores */
+        .competitors {
+            padding: 4rem 0;
+        }
+
+        .competitors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .competitor-card {
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .competitor-card:hover {
+            border-color: var(--duolingo-text-link);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .competitor-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            margin: 0 auto 1rem;
+            display: block;
+            object-fit: cover;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Métricas */
+        .metrics {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--duolingo-dark), var(--duolingo-purple));
+            color: white;
+        }
+        
+        .metrics .section-title, .metrics .metrics-title {
+             color: white !important;
+        }
+
+        .metrics-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .metrics-column {
+            text-align: center;
+        }
+
+        .metrics-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+        }
+
+        .metric-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            margin-bottom: 1rem;
+        }
+        
+        .metric-item * {
+            color: white !important;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--duolingo-yellow) !important;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Sources Section */
+        .sources-section {
+            padding: 4rem 0;
+        }
+
+        .sources-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            background: var(--bg-card);
+            border: 2px solid var(--duolingo-green);
+            color: var(--text-primary);
+            padding: 10px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--duolingo-green);
+            background: var(--bg-secondary);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--duolingo-green);
+            border-color: var(--duolingo-green);
+            color: white !important;
+        }
+
+        .sources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .source-card {
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--duolingo-green);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-8) var(--space-16);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-base);
+            font-weight: 500;
+            line-height: 1.5;
+            cursor: pointer;
+            transition: all var(--duration-normal) var(--ease-standard);
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn--primary {
+            background: var(--duolingo-green);
+            color: white !important;
+        }
+
+        .btn--primary:hover {
+            background: var(--duolingo-text-success);
+            transform: translateY(-2px);
+        }
+
+        /* Sistema de Toast Melhorado - Sem Sobreposição */
+        .toast-notification {
+            position: fixed;
+            right: 20px;
+            border: 3px solid var(--duolingo-green);
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 280px;
+            max-width: 400px;
+            z-index: 9999;
+            transform: translateX(400px);
+            opacity: 0;
+            transition: all 0.3s ease-out;
+        }
+
+        .toast-notification.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .toast-notification.hide {
+            animation: slideOutRight 0.3s ease-in;
+            transform: translateX(400px);
+            opacity: 0;
+        }
+
+        .toast-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .toast-content {
+            flex: 1;
+        }
+        
+        .toast-message {
+            font-size: 14px;
+            line-height: 1.3;
+        }
+
+        .toast-progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #E5E5E5;
+            border-radius: 0 0 16px 16px;
+            overflow: hidden;
+        }
+
+        .toast-progress-fill {
+            height: 100%;
+            background: var(--duolingo-green);
+            animation: progressBar 3s linear;
+            width: 100%;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--duolingo-green);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            z-index: 1002;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+        }
+
+        .back-to-top.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            background: var(--duolingo-text-success);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes progressBar {
+            from { width: 100%; }
+            to { width: 0%; }
+        }
+        
+        /* Modal de Conquista 100% */
+        .victory-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 10000;
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .victory-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .victory-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--bg-card);
+            border: 5px solid #58CC02;
+            border-radius: 30px;
+            padding: 60px 40px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: scaleIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .victory-icon {
+            font-size: 120px;
+            animation: bounce 1s infinite;
+        }
+        
+        .victory-title {
+            font-size: 48px;
+            font-weight: 900;
+            color: #58CC02;
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+        
+        .victory-message {
+            font-size: 20px;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+        
+        .victory-button {
+            background: linear-gradient(135deg, #58CC02, #4CAF00);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 20px 60px;
+            font-size: 24px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 30px;
+            box-shadow: 0 8px 20px rgba(88, 204, 2, 0.4);
+            transition: all 0.3s;
+        }
+        
+        .victory-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(88, 204, 2, 0.6);
+        }
+        
+        /* Confetes */
+        .confetti-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            top: -10px;
+            animation: confettiFall linear infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes scaleIn {
+            0% {
+                transform: translate(-50%, -50%) scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        
+        @keyframes confettiFall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main {
+                margin-top: 70px; /* Only main header is fixed */
+            }
+
+            .header-right {
+                gap: 1rem;
+            }
+
+            .secondary-header {
+                top: 0;
+                left: -100%; /* Hide by default */
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding: 8rem 2rem 2rem 2rem;
+                background: var(--bg-card);
+                border-right: 1px solid var(--border-color);
+                border-bottom: none;
+                transition: left 0.3s ease-in-out;
+            }
+
+            .secondary-header.open {
+                left: 0;
+            }
+            
+            .nav-overlay {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+                z-index: 997;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s, visibility 0.3s;
+            }
+
+            .nav-overlay.open {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            body.menu-open {
+                overflow: hidden;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+                width: 100%;
+                overflow: visible;
+            }
+
+            .nav-links li a.active::after {
+                display: none; /* No underline on mobile */
+            }
+            
+            .nav-links li a {
+                font-size: 1.2rem;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .xp-counter {
+                top: 85px;
+                right: 10px;
+                font-size: 0.9rem;
+                padding: 0.6rem 1rem;
+                min-width: 120px;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                padding-left: 4rem !important;
+                padding-right: 1rem !important;
+                text-align: left !important;
+            }
+
+            .timeline-year {
+                left: 20px !important;
+                margin-left: -30px;
+            }
+
+            .metrics-comparison {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .sources-filters {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .sources-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .toast-notification {
+                right: 10px;
+                left: 10px;
+                max-width: calc(100vw - 20px);
+                min-width: auto;
+            }
+            
+            .victory-content {
+                margin: 0 20px;
+                padding: 40px 30px;
+                max-width: calc(100vw - 40px);
+            }
+            
+            .victory-title {
+                font-size: 36px;
+            }
+            
+            .victory-message {
+                font-size: 18px;
+            }
+            
+            .victory-button {
+                padding: 15px 40px;
+                font-size: 20px;
+            }
+
+            .back-to-top {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Double Diamond Intro Cards */
+        .double-diamond-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .dd-card {
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dd-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .dd-card-header {
+            padding: 30px 20px;
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+        .dd-card-header h3 {
+            color: #FFFFFF !important;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 10px 0 0 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Exceção para fundo amarelo - texto preto */
+        .dd-card-header[style*="#FFC800"] h3 {
+            color: #2B2B2B !important;
+            text-shadow: none;
+        }
+
+        .dd-icon {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 10px;
+            color: white !important;
+        }
+        
+        [data-theme="dark"] .dd-icon {
+            color: white !important;
+        }
+        
+        .dd-card-header[style*="#FFC800"] .dd-icon {
+            color: #2B2B2B !important;
+        }
+
+
+        .dd-card-body {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dd-learn-btn {
+            background: #58CC02;
+            color: #FFFFFF !important;
+            border: none;
+            border-radius: 25px;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+            margin-top: auto; /* Pushes button to the bottom */
+        }
+
+        .dd-learn-btn:hover {
+            background: #4CAF00;
+            transform: scale(1.02);
+        }
+
+        .dd-details {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .dd-details ul {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+
+        /* CORREÇÕES CRÍTICAS DE CONTRASTE - TEMA CLARO */
+        .timeline-content,
+        .prototype-card,
+        .competitor-card,
+        .source-card {
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover,
+        .prototype-card:hover,
+        .competitor-card:hover,
+        .source-card:hover {
+             transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Corrigindo cor de fonte nos detalhes */
+        .timeline-details p, .timeline-details h4,
+        .more-details-content p, .more-details-content h4, .more-details-content li,
+        .prototype-expanded p, .prototype-expanded h4,
+        .competitor-expanded p, .competitor-expanded h4,
+        .dd-details p, .dd-details h4, .dd-details li {
+            color: var(--text-primary);
+        }
+        
+        .more-details-content p, .prototype-expanded p, .competitor-expanded p, .dd-details p {
+             color: var(--text-secondary);
+        }
+
+
+        .competitor-expanded [style*="--text-secondary"] {
+             color: var(--text-secondary) !important;
+        }
+
+
+        /* Section class for intersection observer */
+        .section {
+            scroll-margin-top: 100px;
+        }
+
+        /* Rodapé com Créditos */
+        .app-footer {
+            background: var(--bg-secondary);
+            border-top: 3px solid #58CC02;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-line {
+            font-size: 18px;
+            margin: 12px 0;
+            line-height: 1.6;
+        }
+
+        .footer-line strong {
+            color: var(--duolingo-green);
+            font-weight: 700;
+        }
+
+        [data-theme="dark"] .footer-line strong {
+            color: var(--duolingo-green); /* Verde mantém em ambos os temas */
+        }
+
+        .double-diamond-image-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            text-align: center;
+        }
+        .double-diamond-image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+        .image-caption {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .image-source {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .image-source a {
+            color: var(--duolingo-text-link);
+        }
+        
+        /* Utility classes */
+        .text-center { text-align: center; }
+        .mb-2 { margin-bottom: 2rem; }
+        .mt-2 { margin-top: 2rem; }
+        .hidden { display: none; }
+        .show { display: block !important; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Barra de Progresso de Leitura -->
+    <div class="reading-progress-bar">
+        <div class="reading-progress-fill" id="reading-progress"></div>
+    </div>
+
+    <!-- Contador de XP -->
+    <div class="xp-counter" id="xpCounter">
+        🏆 <span id="xpValue">0</span> / 237 XP
+        <div style="font-size: 0.7rem; opacity: 0.8; margin-top: 2px;">
+            <span id="xpProgress">0%</span> Completo
+        </div>
+        <div style="width: 100%; height: 4px; background: rgba(255,255,255,0.3); border-radius: 2px; margin-top: 4px; overflow: hidden;">
+            <div id="xpProgressBar" style="height: 100%; background: white; width: 0%; transition: width 0.3s ease; border-radius: 2px;"></div>
+        </div>
+    </div>
+
+    <!-- Header Fixo -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-left">
+                    <a href="#" class="logo">
+                        <div class="owl-icon"><img src="https://design.duolingo.com/86230c9ad10d9f08b785.svg" alt="Ícone do Duolingo" style="width: 28px; height: auto;"></div>
+                        Duolingo Discovery
+                    </a>
+                </div>
+                
+                <div class="header-right">
+                <!-- Mobile Menu Toggle -->
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Abrir menu">☰</button>
+                <!-- Botão de Tema (visível em desktop) -->
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Alternar tema">
+                    <span class="theme-icon" id="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Secondary Navigation Header -->
+    <nav class="secondary-header" id="secondary-header">
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#intro">Introdução</a></li>
+            <li><a href="#gamification">Gamificação</a></li>
+            <li><a href="#double-diamond-intro">Double Diamond</a></li>
+            <li><a href="#timeline">Timeline</a></li>
+            <li><a href="#diamond">Fases</a></li>
+            <li><a href="#prototypes">Protótipos</a></li>
+            <li><a href="#competitors">Competidores</a></li>
+            <li><a href="#metrics">Métricas</a></li>
+            <li><a href="#sources">Fontes</a></li>
+        </ul>
+    </nav>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- 0. Seção de Introdução -->
+        <section class="intro-section section" id="intro">
+            <div class="container">
+                <img src="https://design.duolingo.com/86230c9ad10d9f08b785.svg" alt="Ícone do Duolingo" style="width: 80px; height: auto; margin-bottom: 1.5rem;">
+                <h1 class="intro-title">Duolingo sob o Double Diamond</h1>
+                <p class="intro-subtitle">Olá! Prepare-se para uma jornada interativa pela história de criação do Duolingo, vista através da poderosa metodologia Double Diamond.</p>
+            </div>
+        </section>
+
+        <!-- 1. Seção de Gamificação Inicial -->
+        <section class="gamification-intro section" id="gamification">
+            <div class="container">
+                <div class="gamification-content">
+                    <h2 class="gamification-title">🎮 Como Funciona Esta Experiência Gamificada</h2>
+                    
+                    <div class="gamification-box">
+                        <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">Inspirado no próprio Duolingo, esta jornada interativa recompensa sua exploração com XP (Experience Points)!</p>
+                        
+                        <h3 style="margin-bottom: 1rem; font-size: 1.3rem;">Como ganhar XP:</h3>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="margin-bottom: 0.8rem; padding-left: 2rem;">🎯 <strong>Clique em botões especiais:</strong> +10 XP</li>
+                            <li style="margin-bottom: 0.8rem; padding-left: 2rem;">📖 <strong>Leia detalhes expandidos:</strong> +5 XP</li>
+                            <li style="margin-bottom: 0.8rem; padding-left: 2rem;">🔍 <strong>Explore protótipos:</strong> +15 XP</li>
+                            <li style="margin-bottom: 0.8rem; padding-left: 2rem;">📚 <strong>Acesse fontes e referências:</strong> +5 XP</li>
+                        </ul>
+                        
+                        <p style="font-size: 1.1rem; margin-top: 1.5rem; opacity: 0.9;">Seu progresso é salvo durante toda a navegação. Quanto mais você explora, mais XP acumula! <strong>Será que você consegue 100% de XP? 👀</strong></p>
+                    </div>
+                    
+                    <button id="firstClickBtn" class="first-click-btn">
+                        ⚡ EXPERIMENTE CLICAR AQUI ⚡
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. O Que é Double Diamond? -->
+        <section class="double-diamond-intro section" id="double-diamond-intro">
+            <div class="container">
+                <h2 class="section-title">💎 O Que é Double Diamond?</h2>
+                
+                <p class="section-description" style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem;">
+                    O Double Diamond é uma metodologia de design thinking criada pelo British Design Council em 2005. 
+                    Representa o processo criativo dividido em quatro fases distintas, garantindo que problemas sejam 
+                    explorados antes de soluções serem criadas.
+                </p>
+
+                <!-- IMAGEM EXPLICATIVA DO DOUBLE DIAMOND -->
+                <div class="double-diamond-image-container">
+                    <img src="https://htmlburger.com/blog/wp-content/uploads/2022/07/How-Does-the-Double-Diamond-Design-Process-Work-Full-Infographic-1024x733.jpg"
+                         alt="Diagrama explicativo da metodologia Double Diamond"
+                         loading="lazy">
+                    <p class="image-caption">
+                        Diagrama da metodologia Double Diamond: Descobrir, Definir, Desenvolver e Entregar
+                    </p>
+                    <p class="image-source">
+                        Fonte: <a href="https://htmlburger.com/blog/double-diamond-design-process/" target="_blank" rel="noopener noreferrer">HTML Burger - Double Diamond Design Process</a>
+                    </p>
+                </div>
+                
+                <div class="double-diamond-cards">
+                    <!-- Card 1: Descobrir -->
+                    <div class="dd-card">
+                        <div class="dd-card-header" style="background: #1CB0F6;">
+                            <span class="dd-icon">🔍</span>
+                            <h3>Descobrir</h3>
+                        </div>
+                        <div class="dd-card-body">
+                            <div style="flex-grow: 1;">
+                                <p class="dd-summary">
+                                    Fase divergente de exploração do problema através de pesquisa e insights.
+                                </p>
+                            </div>
+                            <button class="dd-learn-btn" onclick="toggleDDDetails('discover')">
+                                📖 APRENDER MAIS (+10 XP)
+                            </button>
+                            <div class="dd-details hidden" id="dd-discover">
+                                <h4>Objetivo:</h4>
+                                <p>Entender profundamente o problema real dos usuários através de pesquisa empática.</p>
+                                
+                                <h4>Atividades Típicas:</h4>
+                                <ul>
+                                    <li>Entrevistas com usuários</li>
+                                    <li>Observação contextual</li>
+                                    <li>Análise de concorrentes</li>
+                                    <li>Desk research</li>
+                                    <li>Surveys e questionários</li>
+                                </ul>
+                                
+                                <h4>Resultado:</h4>
+                                <p>Grande volume de insights e dados qualitativos sobre necessidades dos usuários.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2: Definir -->
+                    <div class="dd-card">
+                        <div class="dd-card-header" style="background: #58CC02;">
+                            <span class="dd-icon">🎯</span>
+                            <h3>Definir</h3>
+                        </div>
+                        <div class="dd-card-body">
+                            <div style="flex-grow: 1;">
+                                <p class="dd-summary">
+                                    Fase convergente de síntese e definição clara do problema a resolver.
+                                </p>
+                            </div>
+                            <button class="dd-learn-btn" onclick="toggleDDDetails('define')">
+                                📖 APRENDER MAIS (+10 XP)
+                            </button>
+                            <div class="dd-details hidden" id="dd-define">
+                                <h4>Objetivo:</h4>
+                                <p>Sintetizar insights em uma declaração clara e acionável do problema.</p>
+                                
+                                <h4>Atividades Típicas:</h4>
+                                <ul>
+                                    <li>Affinity mapping</li>
+                                    <li>Personas de usuários</li>
+                                    <li>User journey maps</li>
+                                    <li>Problem statements</li>
+                                    <li>How Might We questions</li>
+                                </ul>
+                                
+                                <h4>Resultado:</h4>
+                                <p>Definição precisa do problema prioritário a ser resolvido.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3: Desenvolver -->
+                    <div class="dd-card">
+                        <div class="dd-card-header" style="background: #FFC800;">
+                            <span class="dd-icon">💡</span>
+                            <h3>Desenvolver</h3>
+                        </div>
+                        <div class="dd-card-body">
+                            <div style="flex-grow: 1;">
+                                <p class="dd-summary">
+                                    Fase divergente de ideação e prototipação de múltiplas soluções.
+                                </p>
+                            </div>
+                            <button class="dd-learn-btn" onclick="toggleDDDetails('develop')">
+                                📖 APRENDER MAIS (+10 XP)
+                            </button>
+                            <div class="dd-details hidden" id="dd-develop">
+                                <h4>Objetivo:</h4>
+                                <p>Gerar o máximo de ideias possíveis e testar rapidamente através de protótipos.</p>
+                                
+                                <h4>Atividades Típicas:</h4>
+                                <ul>
+                                    <li>Brainstorming sessions</li>
+                                    <li>Sketching e wireframing</li>
+                                    <li>Prototipação rápida</li>
+                                    <li>User testing</li>
+                                    <li>Iteração baseada em feedback</li>
+                                </ul>
+                                
+                                <h4>Resultado:</h4>
+                                <p>Protótipos validados e refinados através de testes com usuários reais.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 4: Entregar -->
+                    <div class="dd-card">
+                        <div class="dd-card-header" style="background: var(--duolingo-purple);">
+                            <span class="dd-icon">🚀</span>
+                            <h3>Entregar</h3>
+                        </div>
+                        <div class="dd-card-body">
+                            <div style="flex-grow: 1;">
+                                <p class="dd-summary">
+                                    Fase convergente de implementação e lançamento da solução validada.
+                                </p>
+                            </div>
+                            <button class="dd-learn-btn" onclick="toggleDDDetails('deliver')">
+                                📖 APRENDER MAIS (+10 XP)
+                            </button>
+                            <div class="dd-details hidden" id="dd-deliver">
+                                <h4>Objetivo:</h4>
+                                <p>Implementar a solução escolhida e monitorar seu desempenho no mundo real.</p>
+                                
+                                <h4>Atividades Típicas:</h4>
+                                <ul>
+                                    <li>Desenvolvimento final</li>
+                                    <li>Beta testing</li>
+                                    <li>Lançamento gradual</li>
+                                    <li>Monitoramento de métricas</li>
+                                    <li>Iteração contínua</li>
+                                </ul>
+                                
+                                <h4>Resultado:</h4>
+                                <p>Produto lançado no mercado com processo de melhoria contínua estabelecido.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Timeline da Jornada (2009-2012) -->
+        <section class="timeline-section section" id="timeline">
+            <div class="container">
+                <h2 class="section-title">Timeline da Jornada (2009-2012)</h2>
+                <div class="timeline" id="timelineContainer">
+                    <!-- Timeline items serão gerados pelo JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Fases do Double Diamond -->
+        <section class="diamond-phases section" id="diamond">
+            <div class="container">
+                <h2 class="section-title">Fases do Double Diamond no Duolingo</h2>
+                <div class="phases-grid" id="phasesGrid">
+                    <!-- Phase cards serão gerados pelo JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Evolução dos Protótipos -->
+        <section class="prototypes section" id="prototypes">
+            <div class="container">
+                <h2 class="section-title">Evolução dos Protótipos</h2>
+                <p class="text-center section-description" style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem;">O Duolingo passou por múltiplas iterações antes de chegar ao produto que conhecemos hoje.</p>
+                <div class="prototypes-grid" id="prototypesGrid">
+                    <!-- Prototype cards serão gerados pelo JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Cenário Competitivo em 2011 -->
+        <section class="competitors section" id="competitors">
+            <div class="container">
+                <h2 class="section-title">Cenário Competitivo em 2011</h2>
+                <p class="text-center section-description" style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem;">Quando o Duolingo estava sendo desenvolvido, o mercado de aprendizado de idiomas já tinha players estabelecidos.</p>
+                <div class="competitors-grid" id="competitorsGrid">
+                    <!-- Competitor cards serão gerados pelo JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Métricas de Sucesso -->
+        <section class="metrics section" id="metrics">
+            <div class="container">
+                <h2 class="section-title">Evolução das Métricas</h2>
+                <div class="metrics-comparison">
+                    <div class="metrics-column">
+                        <div class="metrics-title">2012 - Lançamento</div>
+                        <div class="metric-item">
+                            <div class="metric-value">300K</div>
+                            <div class="metric-label">Lista de Espera</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">6</div>
+                            <div class="metric-label">Idiomas</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">Freemium</div>
+                            <div class="metric-label">Modelo de Negócio</div>
+                        </div>
+                    </div>
+                    <div class="metrics-column">
+                        <div class="metrics-title">2024 - Atual</div>
+                        <div class="metric-item">
+                            <div class="metric-value">128M</div>
+                            <div class="metric-label">Usuários Ativos Mensais</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">40+</div>
+                            <div class="metric-label">Idiomas</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">$748M</div>
+                            <div class="metric-label">Receita Anual</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Fontes e Referências Acadêmicas (SEÇÃO FINAL) -->
+        <section class="sources-section section" id="sources">
+            <div class="container">
+                <h2 class="section-title">📚 Fontes &amp; Referências Acadêmicas</h2>
+                <p class="text-center section-description" style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem;">Todas as fontes consultadas para este estudo de caso, organizadas por relevância e data de publicação. Esta é a seção final da jornada!</p>
+                
+                <div class="sources-filters">
+                    <button class="filter-btn active" onclick="filterSources('all', event)" aria-pressed="true">Todas (+5 XP)</button>
+                    <button class="filter-btn" onclick="filterSources('primary', event)" aria-pressed="false">Primárias (+5 XP)</button>
+                    <button class="filter-btn" onclick="filterSources('secondary', event)" aria-pressed="false">Secundárias (+5 XP)</button>
+                    <button class="filter-btn" onclick="filterSources('recent', event)" aria-pressed="false">Recentes (+5 XP)</button>
+                </div>
+                
+                <div class="sources-grid" id="sourcesGrid">
+                    <!-- Sources serão gerados pelo JavaScript -->
+                </div>
+                
+                <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, var(--duolingo-green), var(--duolingo-light-green)); border-radius: var(--radius-lg);">
+                    <h3 style="margin-bottom: 1rem; color: white !important;">🎉 Parabéns por Completar a Jornada!</h3>
+                    <p style="color: white !important;">Você explorou todo o processo de discovery do Duolingo usando a metodologia Double Diamond. Esperamos que tenha sido uma experiência enriquecedora!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé com Créditos -->
+    <footer class="app-footer">
+        <div class="footer-content">
+            <p class="footer-line">
+                Made with ❤️ by <strong>Cristiana, Gabi, Gabriel and Teresa</strong>
+            </p>
+            <p class="footer-line">
+                Powered with 🤖 by <strong>Perplexity and Claude</strong>
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- Botão Voltar ao Topo -->
+    <button class="back-to-top" id="backToTop" title="Voltar ao topo">
+        ↑
+    </button>
+
+    <!-- Modal de Conquista 100% -->
+    <div id="victory-modal" class="victory-modal">
+        <div class="victory-overlay"></div>
+        <div class="victory-content">
+            <div class="confetti-container"></div>
+            <div class="victory-icon">🎉</div>
+            <h1 class="victory-title">PARABÉNS!</h1>
+            <p class="victory-message">
+                Você completou 100% da jornada de Product Discovery do Duolingo!
+                <br><br>
+                🏆 <strong>237 XP</strong> conquistados!
+                <br><br>
+                Você explorou o Double Diamond, todas as fases, protótipos, competidores e fontes.
+                Agora você é um expert na história do Duolingo! 🦉💚
+            </p>
+            <button class="victory-button" onclick="closeVictoryModal()">
+                🎊 INCRÍVEL! 🎊
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // ===== DADOS DA APLICAÇÃO =====
+        const timelineData = [
+            {
+                year: "2009",
+                phase: "Discover",
+                event: "Ideação Inicial",
+                description: "Luis Von Ahn e Severin Hacker formulam a ideia do Duolingo",
+                details: "Após o sucesso do reCAPTCHA (vendido ao Google por valores não divulgados), Luis Von Ahn buscava seu próximo projeto de impacto social. Em visita à Guatemala, percebeu que aprender inglês custava mais que a mensalidade universitária. Severin Hacker, seu aluno de doutorado em Carnegie Mellon, compartilhava a visão de que tecnologia poderia democratizar educação. Juntos, começaram a explorar como crowdsourcing poderia tornar educação gratuita e acessível globalmente."
+            },
+            {
+                year: "2010-2011",
+                phase: "Define",
+                event: "Definição do Problema",
+                description: "Definição clara do desafio e missão",
+                details: "Período de intensa pesquisa de mercado e definição de escopo. Análise de concorrentes como Rosetta Stone (modelo premium caro) e Babbel (freemium limitado). Decisão estratégica: foco em inglês para falantes não-nativos, o maior mercado global. Estabelecimento da missão: 'Desenvolver a melhor educação do mundo e torná-la universalmente acessível'. Validação inicial com usuários beta em Carnegie Mellon."
+            },
+            {
+                year: "2011",
+                phase: "Develop",
+                event: "Primeiros Protótipos",
+                description: "Descoberta do problema de engajamento",
+                details: "Von Ahn desenvolveu curso de espanhol, Hacker desenvolveu curso de alemão. Formato: lições de 30 minutos seguindo pedagogia tradicional. Teste crucial: eles mesmos tentaram usar os cursos. Resultado devastador - nem conseguiam completar uma semana. Insight transformador: conteúdo educacional de qualidade não é suficiente. Necessidade absoluta de mecânicas de engajamento e motivação contínua."
+            },
+            {
+                year: "2011-2012",
+                phase: "Develop",
+                event: "Modelo de Tradução Crowdsourced",
+                description: "Primeira tentativa de modelo escalável",
+                details: "Pivô para modelo de tradução: usuários aprenderiam traduzindo conteúdo web real (Wikipedia, artigos da CNN). Lógica: falantes de espanhol traduziriam para inglês enquanto aprendiam, gerando receita B2B. Problemas encontrados: complexidade para usuários iniciantes, poucos clientes corporativos interessados, dificuldade de escalar. Conclusão: simplicidade é essencial para adoção massiva de produto educacional."
+            },
+            {
+                year: "2012",
+                phase: "Develop",
+                event: "Criação do App Mobile",
+                description: "Pivô revolucionário para mobile-first",
+                details: "Momento decisivo: Tyler Murphy e David Klionsky (estagiários de verão) desenvolveram protótipo mobile de flashcards como projeto paralelo. Inspiração: Instagram como experiência mobile-first completa. Teste interno revelou: engajamento 3x maior no app vs site. Decisão revolucionária: pivotar para mobile como produto principal. Definição do core: skill tree visual desbloqueável, inspirado em jogos como Candy Crush e World of Warcraft."
+            },
+            {
+                year: "2012 - Junho",
+                phase: "Deliver",
+                event: "Beta Privado",
+                description: "Lançamento com lista de espera",
+                details: "Lançamento beta privado em junho com 125.000 pessoas na lista de espera. Teste intensivo de 6 idiomas: inglês, espanhol, francês, alemão, português e italiano. Métricas monitoradas: DAU, retenção D7 e D30, tempo médio de sessão. Feedback crucial dos early adopters sobre gamificação. Iterações rápidas baseadas em dados quantitativos e qualitativos. Modelo freemium ainda focado em tradução como monetização."
+            },
+            {
+                year: "2012 - Novembro",
+                phase: "Deliver",
+                event: "Lançamento Público",
+                description: "Abertura total e apresentação no TechCrunch",
+                details: "Lançamento público em novembro. Apresentação no TechCrunch Disrupt gera buzz massivo. Mais de 300.000 pessoas na lista de espera. Promessa clara: educação 100% gratuita, sem anúncios, sem taxas ocultas. Primeiros sinais de viralidade orgânica. Abandono gradual do modelo de tradução crowdsourced em favor de crescimento de base de usuários. Foco total em engajamento e retenção através de gamificação."
+            }
+        ];
+
+        const diamondPhases = {
+            discover: {
+                title: "Descobrir",
+                description: "Entendimento do problema através de pesquisa e insights. Crowdsourcing foi identificado desde reCAPTCHA. Highlight insight socioeconômico e o desejo de democratizar educação.",
+                icon: "🔍",
+                activities: [
+                    "Observação das barreiras econômicas no aprendizado de idiomas",
+                    "Experiência pessoal dos fundadores com custo de testes de proficiência",
+                    "Pesquisa sobre o mercado de educação digital emergente",
+                    "Análise de concorrentes existentes como Rosetta Stone"
+                ],
+                outcomes: "Identificação da necessidade de democratizar acesso à educação de idiomas",
+                detailedContent: "Luis Von Ahn, motivado pelo alto custo da educação e apoiado em crowdsourcing (CAPTCHA, reCAPTCHA), observou a dificuldade de acesso ao aprendizado de idiomas em países como Guatemala. A equipe conectou esse insight ao potencial de tecnologia e comunidade para democratizar educação global. Esta fase foi fundamental para entender que o problema não era apenas técnico, mas social e econômico, estabelecendo as bases para uma solução verdadeiramente disruptiva."
+            },
+            define: {
+                title: "Definir",
+                description: "Missão clara: criar educação gratuita e acessível. Problema sintetizado através de user research, benchmarks de concorrentes (Rosetta Stone, Babbel) e experimentos de MVP.",
+                icon: "🎯",
+                activities: [
+                    "Definição da missão: desenvolver a melhor educação do mundo",
+                    "Estabelecimento do modelo gratuito como diferencial",
+                    "Foco inicial em ensino de inglês para falantes não-nativos",
+                    "Decisão de usar tecnologia para escalar educação"
+                ],
+                outcomes: "Problema claramente definido: criar educação gratuita e acessível",
+                detailedContent: "A equipe definiu como problema central as barreiras econômicas e criou o conceito de app gratuito. Inspirou-se em concorrentes pagos e usou experimentação rápida para validar que ensino de inglês era a principal necessidade dos usuários. O roadmap foi orientado por insights de mercado e testes com usuários, estabelecendo que a democratização da educação seria o diferencial competitivo principal."
+            },
+            develop: {
+                title: "Desenvolver",
+                description: "Ideação e prototipação de múltiplas soluções. Evolução dos protótipos: lições longas, crowdsourcing, flashcards e pivot mobile. Estrutura organizacional: times multidisciplinares, design review e OKR.",
+                icon: "💡",
+                activities: [
+                    "Primeira tentativa: lições tradicionais de 30 minutos",
+                    "Descoberta do problema de engajamento através de auto-teste",
+                    "Iteração para modelo de tradução crowdsourced",
+                    "Desenvolvimento de app mobile como produto principal",
+                    "Adição de elementos de gamificação para engajamento"
+                ],
+                outcomes: "App mobile gamificado com skill tree como experiência core",
+                detailedContent: "Protótipo inicial falhou por falta de engajamento, levando à inserção de gamificação e prototipação mobile por estagiários inspirados no Instagram. Time multidisciplinar (design, engenharia, ciência da aprendizagem) iterou em ciclos curtos, com reviews colaborativos e métricas de engajamento e retenção. Modelo OKR trimestral foi implementado para alinhar objetivos e medir progresso de forma sistemática."
+            },
+            deliver: {
+                title: "Entregar",
+                description: "Implementação e lançamento público. Beta privado, apresentação em eventos, análise rigorosa de métricas. MVP gradualmente convertido para produto completo mobile, pivô de modelo de negócios.",
+                icon: "🚀",
+                activities: [
+                    "Lançamento de beta privado com lista de espera",
+                    "Apresentação no TechCrunch Disrupt",
+                    "Lançamento público com 6 idiomas",
+                    "Monitoramento de métricas de engajamento",
+                    "Iteração contínua baseada em feedback"
+                ],
+                outcomes: "Plataforma estabelecida com base de usuários crescente",
+                detailedContent: "Lançamento com lista de espera e testes de engajamento. Beta privado para captar feedback do usuário real, TechCrunch Disrupt para validação externa. Abandono do modelo de tradução crowdsourced e foco no crescimento orgânico e produto gamificado. Iteração contínua baseada em dados de usuário real, estabelecendo o produto como referência no mercado."
+            }
+        };
+
+        const prototypes = [
+            {
+                name: "Protótipo 1 - Lições Tradicionais",
+                year: "2011",
+                description: "Lições de 30 minutos sem elementos lúdicos",
+                result: "failure",
+                resultText: "Falha - nem os próprios fundadores conseguiam manter engajamento",
+                learning: "Conteúdo de qualidade não basta - necessário engajamento ativo",
+                details: "Luis Von Ahn criou curso de espanhol, Severin Hacker criou curso de alemão. Lições de 30 minutos sem elementos lúdicos. Problema descoberto: nem os próprios fundadores conseguiam manter o hábito de estudo. Este fracasso inicial foi crucial - revelou que conteúdo educacional de qualidade não basta sem engajamento. Insight: necessidade de mecânicas motivacionais."
+            },
+            {
+                name: "Protótipo 2 - Tradução Crowdsourced",
+                year: "2011-2012",
+                description: "Usuários aprendem traduzindo conteúdo web real",
+                result: "partial",
+                resultText: "Parcialmente eficaz mas não escalável",
+                learning: "Simplicidade é essencial para adoção em massa",
+                details: "Modelo inovador: usuários aprenderiam traduzindo conteúdo web real (Wikipedia, CNN). Falantes de espanhol traduziriam para inglês enquanto aprendiam. Problema: modelo muito complexo, poucos clientes B2B interessados, não escalável. Aprendizado: simplicidade é essencial para adoção em massa."
+            },
+            {
+                name: "Protótipo 3 - App de Flashcards",
+                year: "2012",
+                description: "App complementar simples para prática de vocabulário",
+                result: "success",
+                resultText: "Evoluiu para produto principal",
+                learning: "Mobile-first approach foi fundamental para o sucesso",
+                details: "Dois estagiários (Tyler Murphy e David Klionsky) criaram protótipo mobile como projeto de verão. Inicialmente pensado como complemento, inspirado no Instagram como experiência mobile-first completa. Insight revolucionário: o mobile deveria ser o produto principal, não o site. Define experiência core: skill tree desbloqueável."
+            },
+            {
+                name: "Protótipo 4 - App Gamificado",
+                year: "2012",
+                description: "Skill tree desbloqueável com elementos de jogo",
+                result: "success",
+                resultText: "Sucesso - base para o produto atual",
+                learning: "Gamificação é essencial para retenção de usuários",
+                details: "Combinação de elementos de jogo: streaks, XP, níveis, leaderboards. Skill tree visual inspirado em jogos como Candy Crush. Resultado: engajamento disparou. Usuários retornavam diariamente. Validação do modelo: gamificação não é superficial, é essencial para retenção. Base do produto bilionário atual."
+            }
+        ];
+
+        const competitorsData = {
+            rosetta_stone: {
+                name: "Rosetta Stone",
+                iconUrl: "https://images.freeimages.com/fic/images/icons/2804/plex/512/rosetta_stone.png?fmt=webp&h=350",
+                founded: 1992,
+                description: "Líder estabelecido em software de aprendizado de idiomas",
+                model: "Premium pago",
+                badge_color: "#FFC800",
+                details: "Líder estabelecido desde 1992 com método de imersão sem tradução. Em 2011: receita de $273M, ações caíram 46% devido a apps gratuitos. 174 quiosques físicos em 28 estados. Preço: $500 por idioma. Público: corporativo e institucional (56% educação).",
+                metrics_2011: {
+                    revenue: "$273 milhões",
+                    employees: "~800",
+                    active_users: "154.000 (SharedTalk)",
+                    kiosks: "174 quiosques",
+                    market_share: "Líder absoluto",
+                    pricing: "$500/idioma"
+                }
+            },
+            babbel: {
+                name: "Babbel",
+                iconUrl: "https://pbs.twimg.com/profile_images/1808222584997134336/qLdrnBWv_400x400.png",
+                founded: 2007,
+                description: "App premium alemão focado em conversação prática",
+                model: "Freemium/Premium",
+                badge_color: "#4CAF00",
+                details: "Fundado em 2007 na Alemanha, focado em conversação prática. Lançou versão paga em 2009. Em 2011: modelo freemium inicial, equipe pequena, preparando expansão US. Metodologia: lições estruturadas 10-15min com gramática contextual. 14 idiomas disponíveis.",
+                metrics_2011: {
+                    founded: "Agosto 2007 (Berlim)",
+                    employees: "~50-100",
+                    pricing: "$6-13/mês",
+                    languages: "14 idiomas",
+                    strategy: "Lições curtas estruturadas",
+                    funding: "Bootstrapped"
+                }
+            },
+            busuu: {
+                name: "Busuu",
+                iconUrl: "https://play-lh.googleusercontent.com/Egp-GTOp0CMBeS6eRVEQO6bLYdfklzGxCYSkr7aZynbzr2AJSZpF9s05_6ppj8vwq7I",
+                founded: 2008,
+                description: "Plataforma britânica com interação entre nativos",
+                model: "Freemium",
+                badge_color: "#4CAF00",
+                details: "Plataforma britânica fundada em 2008 com diferencial único: feedback de falantes nativos. Em 2011: crescimento orgânico, comunidade social forte. Modelo freemium com exercícios revisados por nativos. Integração com McGraw-Hill. Foco: aprendizado colaborativo peer-to-peer.",
+                metrics_2011: {
+                    founded: "2008 (Londres)",
+                    users: "~5-10 milhões",
+                    model: "Freemium + Premium",
+                    differentiator: "Correção por nativos",
+                    community: "Rede social de idiomas",
+                    partnership: "McGraw-Hill"
+                }
+            },
+            memrise: {
+                name: "Memrise",
+                iconUrl: "https://upload.wikimedia.org/wikipedia/en/3/39/Memrise-new-logo.png",
+                founded: 2010,
+                description: "Plataforma baseada em flashcards com repetição espaçada",
+                model: "Freemium",
+                badge_color: "#4CAF00",
+                details: "Fundado em 2010 por Ed Cooke e Greg Detre (neurocientista Princeton). Baseado em ciência cognitiva e repetição espaçada. Em 2011: início de operações, foco em memorização científica, gamificação através de 'mems' visuais criativos. Modelo freemium desde launch.",
+                metrics_2011: {
+                    founded: "2010 (Londres)",
+                    founders: "Ed Cooke + Greg Detre (PhD)",
+                    users: "<1 milhão (fase inicial)",
+                    model: "Freemium",
+                    technology: "Repetição espaçada + mnemônicos",
+                    differentiator: "Base científica cognitiva"
+                }
+            }
+        };
+
+        const sourcesData = [
+    // FONTES PRIMÁRIAS (3)
+    {
+        title: "How a bot-fighting test turned into edtech's most iconic app",
+        link: "https://techcrunch.com/2021/05/03/duolingo-ec1-origin/",
+        date: "2021-05-03",
+        description: "Fonte primária com entrevistas diretas dos fundadores Luis von Ahn e Severin Hacker",
+        category: "primary",
+        type: "Primária"
+    },
+    {
+        title: "How Duolingo builds product",
+        link: "https://www.lennysnewsletter.com/p/how-duolingo-builds-product",
+        date: "2023-03-20",
+        description: "Case study oficial sobre estrutura de produto e metodologias de desenvolvimento",
+        category: "primary",
+        type: "Primária"
+    },
+    {
+        title: "Luis von Ahn: How I Built Duolingo",
+        link: "https://ecorner.stanford.edu/videos/how-i-built-duolingo/",
+        date: "2020-11-15",
+        description: "Palestra do fundador na Stanford sobre a jornada de criação do Duolingo",
+        category: "primary",
+        type: "Primária"
+    },
+    
+    // FONTES SECUNDÁRIAS (5)
+    {
+        title: "How Duolingo reignited user growth",
+        link: "https://www.lennysnewsletter.com/p/how-duolingo-reignited-user-growth",
+        date: "2023-02-27",
+        description: "Análise profunda de estratégias de growth e retenção de usuários",
+        category: "secondary",
+        type: "Secundária"
+    },
+    {
+        title: "Game of Tongues: How Duolingo Built a $700M Business",
+        link: "https://www.forbes.com/sites/susanadams/2019/07/16/",
+        date: "2019-07-16",
+        description: "Reportagem sobre modelo de negócio e estratégia de monetização",
+        category: "secondary",
+        type: "Secundária"
+    },
+    {
+        title: "User Experience Research in EdTech",
+        link: "https://uxplanet.org/ux-research-edtech-2024/",
+        date: "2024-09-10",
+        description: "Tendências de UX Research aplicadas ao setor de tecnologia educacional",
+        category: "secondary",
+        type: "Secundária"
+    },
+    {
+        title: "Duolingo's Secret to Success: Data-Driven Design",
+        link: "https://www.productmanagement.com/duolingo-data-driven-design/",
+        date: "2022-06-20",
+        description: "Análise de como Duolingo usa dados para decisões de produto",
+        category: "secondary",
+        type: "Secundária"
+    },
+    {
+        title: "From Classroom to App: The EdTech Revolution",
+        link: "https://www.technologyreview.com/2023/03/15/edtech-revolution/",
+        date: "2023-03-15",
+        description: "Contexto da revolução EdTech e o papel do Duolingo no mercado",
+        category: "secondary",
+        type: "Secundária"
+    },
+    
+    // FONTES RECENTES (4)
+    {
+        title: "What is Double Diamond Design Process?",
+        link: "https://www.uxpin.com/studio/blog/double-diamond-design-process/",
+        date: "2024-10-06",
+        description: "Guia completo e atualizado sobre a metodologia Double Diamond",
+        category: "recent",
+        type: "Recente"
+    },
+    {
+        title: "Duolingo case discovery notes",
+        link: "https://claude.ai/share/6fe83934-eb46-4631-8b1b-fddd7d4e4e00",
+        date: "2024-10-19",
+        description: "Documento colaborativo de pesquisa e análise do case",
+        category: "recent",
+        type: "Recente"
+    },
+    {
+        title: "Double Diamond methodology case studies",
+        link: "https://design-council.org.uk/double-diamond-cases/",
+        date: "2024-08-15",
+        description: "Casos reais de aplicação do Double Diamond em diferentes contextos",
+        category: "recent",
+        type: "Recente"
+    },
+    {
+        title: "Design Thinking in Product Management 2025",
+        link: "https://www.nngroup.com/articles/design-thinking-product-management-2025/",
+        date: "2024-11-01",
+        description: "Tendências e melhores práticas de Design Thinking para 2025",
+        category: "recent",
+        type: "Recente"
+    }
+];
+
+
+        // ===== SISTEMA DE XP - CONTROLE DE DUPLICAÇÃO =====
+        let currentXP = 0;
+        const maxXP = 237; // TOTAL ATUALIZADO: 237 XP (193 + 40 Double Diamond)
+        let activeToasts = [];
+        
+        // Controle de XP ganho - cada ação só pode dar XP uma vez
+        const xpEarned = {
+    firstClick: false,
+    ddIntro: {discover: false, define: false, develop: false, deliver: false},
+    phases: {discover: false, define: false, develop: false, deliver: false},
+    timeline: {0: false, 1: false, 2: false, 3: false, 4: false, 5: false, 6: false},
+    prototypes: {0: false, 1: false, 2: false, 3: false},
+    competitors: {rosetta_stone: false, babbel: false, busuu: false, memrise: false},
+    filters: {all: false, primary: false, secondary: false, recent: false},
+    sources: {0: false, 1: false, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false, 9: false, 10: false, 11: false} // ATUALIZADO para 12 fontes
+};
+
+
+        // Função para dar XP com verificação de duplicação
+        function awardXP(category, item, xpAmount, message) {
+            // Verificar se já ganhou XP desta ação
+            if (category && item !== undefined && xpEarned[category] && xpEarned[category][item]) {
+                return; // Já ganhou, não dar XP novamente
+            }
+            
+            // Marcar como ganho
+            if (category && item !== undefined && xpEarned[category]) {
+                xpEarned[category][item] = true;
+            } else if (category === 'firstClick') {
+                xpEarned.firstClick = true;
+            }
+            
+            // Adicionar XP
+            currentXP += xpAmount;
+            currentXP = Math.min(currentXP, maxXP); 
+            
+            // Atualizar display
+            updateXPDisplay();
+            
+            // Mostrar toast
+            showToast(xpAmount, message);
+            
+            // Verificar 100% completion
+            if (currentXP >= maxXP) {
+                setTimeout(() => {
+                    showVictoryModal();
+                }, 1000);
+            }
+        }
+
+        // ===== SISTEMA DE TEMA - CORRIGIDO =====
+        let currentTheme = 'light';
+        
+        function initThemeSystem() {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            
+            const themeToggle = document.getElementById('theme-toggle');
+            
+            if(themeToggle) {
+                themeToggle.addEventListener('click', toggleTheme);
+            }
+
+            updateThemeIcon(currentTheme);
+        }
+        
+        function toggleTheme() {
+            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            updateThemeIcon(currentTheme);
+        }
+        
+        function updateThemeIcon(theme) {
+            const themeIcon = document.getElementById('theme-icon');
+            if(themeIcon) {
+                themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
+            }
+        }
+        
+        // ===== TOAST MANAGER MELHORADO =====
+        class ToastManager {
+            constructor() {
+                this.toasts = [];
+                this.toastHeight = 100;
+                this.initialTop = 80;
+            }
+            
+            addToast(xp, message) {
+                const toastId = `toast-${Date.now()}`;
+                const position = this.initialTop + (this.toasts.length * this.toastHeight);
+                
+                const toast = this.createToast(toastId, xp, message, position);
+                this.toasts.push({ id: toastId, element: toast });
+                
+                setTimeout(() => this.removeToast(toastId), 3000);
+            }
+            
+            createToast(id, xp, message, top) {
+                const toast = document.createElement('div');
+                toast.id = id;
+                toast.className = 'toast-notification';
+                toast.style.top = `${top}px`;
+                
+                const icon = this.getIcon(xp, message);
+                
+                toast.innerHTML = `
+                    <div class="toast-icon">${icon}</div>
+                    <div class="toast-content">
+                        <div class="toast-title">${xp > 0 ? `+${xp} XP` : message.split('!')[0] + '!'}</div>
+                        <div class="toast-message">${xp > 0 ? message : 'Jornada 100% completa!'}</div>
+                    </div>
+                    <div class="toast-progress-bar">
+                        <div class="toast-progress-fill"></div>
+                    </div>
+                `;
+                
+                document.body.appendChild(toast);
+                
+                requestAnimationFrame(() => {
+                    toast.classList.add('show');
+                });
+                
+                return toast;
+            }
+            
+            removeToast(id) {
+                const index = this.toasts.findIndex(t => t.id === id);
+                if (index === -1) return;
+                
+                const toast = this.toasts[index];
+                toast.element.classList.remove('show');
+                toast.element.classList.add('hide');
+                
+                setTimeout(() => {
+                    if (toast.element.parentNode) {
+                        toast.element.parentNode.removeChild(toast.element);
+                    }
+                    this.toasts.splice(index, 1);
+                    this.repositionToasts();
+                }, 300);
+            }
+            
+            repositionToasts() {
+                this.toasts.forEach((toast, index) => {
+                    const newTop = this.initialTop + (index * this.toastHeight);
+                    toast.element.style.top = `${newTop}px`;
+                    toast.element.style.transition = 'top 0.3s ease-out';
+                });
+            }
+            
+            getIcon(xp, message) {
+                if (xp >= 15) return '🚀';
+                if (xp >= 10) return '🏆';
+                if (xp >= 5) return '🎯';
+                if (message.includes('Primeiro clique')) return '🎉';
+                if (message.includes('analisou')) return '🏆';
+                if (message.includes('filtrou')) return '🔍';
+                if (message.includes('acessou')) return '📚';
+                if (message.includes('explorou')) return '📅';
+                return '📚';
+            }
+        }
+        
+        const toastManager = new ToastManager();
+        
+        function showToast(xpAmount, message, isSpecial = false) {
+            toastManager.addToast(xpAmount, message);
+        }
+        
+        // ===== MODAL DE CONQUISTA =====
+        function createConfetti() {
+            const colors = ['#58CC02', '#1CB0F6', '#FF4B4B', '#FFC800'];
+            const confettiCount = 150;
+            const container = document.querySelector('.confetti-container');
+            if(!container) return;
+            container.innerHTML = '';
+            
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 3 + 's';
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                container.appendChild(confetti);
+            }
+        }
+        
+        function showVictoryModal() {
+            const modal = document.getElementById('victory-modal');
+            if (modal) {
+                modal.style.display = 'block';
+                createConfetti();
+            }
+        }
+        
+        window.closeVictoryModal = function() {
+            const modal = document.getElementById('victory-modal');
+            if (modal) {
+                modal.style.animation = 'fadeOut 0.5s ease-out';
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    modal.style.animation = '';
+                }, 500);
+            }
+        }
+        
+        function updateXPDisplay() {
+            const xpValue = document.getElementById('xpValue');
+            const xpProgress = document.getElementById('xpProgress');
+            const xpProgressBar = document.getElementById('xpProgressBar');
+            
+            if (xpValue) xpValue.textContent = currentXP;
+            
+            const percentage = Math.min(100, Math.round((currentXP / maxXP) * 100));
+            if (xpProgress) xpProgress.textContent = `${percentage}%`;
+            
+            if (xpProgressBar) {
+                xpProgressBar.style.width = `${percentage}%`;
+            }
+            
+            if (xpValue) {
+                xpValue.style.transform = 'scale(1.2)';
+                xpValue.style.color = '#58CC02';
+                setTimeout(() => {
+                    xpValue.style.transform = 'scale(1)';
+                    xpValue.style.color = 'inherit';
+                }, 200);
+            }
+        }
+
+        // ===== GERAÇÃO DE CONTEÚDO E HANDLERS =====
+        
+        window.toggleTimelineDetails = function(button, index) {
+            const details = document.getElementById(`timeline-details-${index}`);
+            const isVisible = !details.classList.contains('hidden');
+            
+            if (isVisible) {
+                details.classList.add('hidden');
+                button.innerHTML = '📚 MAIS DETALHES (+5 XP)';
+            } else {
+                details.classList.remove('hidden');
+                button.innerHTML = '📋 MENOS DETALHES';
+                
+                if (!xpEarned.timeline[index]) {
+                    const eventName = timelineData[index].event;
+                    awardXP('timeline', index, 5, `📅 +5 XP - Evento ${eventName} analisado!`);
+                }
+            }
+        }
+
+        function generateTimeline() {
+            const container = document.getElementById('timelineContainer');
+            if(!container) return;
+            
+            timelineData.forEach((item, index) => {
+                const timelineItem = document.createElement('div');
+                timelineItem.className = 'timeline-item';
+                timelineItem.style.animationDelay = `${index * 0.2}s`;
+                
+                const textLength = item.year.length;
+                let circleSize = textLength > 8 ? '120px' : textLength > 5 ? '100px' : '80px';
+                let fontSize = textLength > 8 ? '0.9rem' : '1.1rem';
+                
+                timelineItem.innerHTML = `
+                    <div class="timeline-year" style="width: ${circleSize}; height: ${circleSize}; font-size: ${fontSize};">${item.year}</div>
+                    <div class="timeline-content">
+                        <div class="phase-badge phase-${item.phase.toLowerCase()}">${item.phase}</div>
+                        <h3 style="margin-bottom: 1rem; font-size: 1.4rem; font-weight: 700;">${item.event}</h3>
+                        <p class="section-description" style="margin-bottom: 1rem;">${item.description}</p>
+                        
+                        <button class="btn btn--primary" onclick="toggleTimelineDetails(this, ${index})" style="margin-top: 1rem;">
+                            📚 MAIS DETALHES (+5 XP)
+                        </button>
+                        
+                        <div class="timeline-details hidden" id="timeline-details-${index}">
+                            <h4 style="margin-bottom: 1rem; font-size: 1.1rem;">Análise Detalhada:</h4>
+                            <p style="line-height: 1.6;">${item.details}</p>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(timelineItem);
+            });
+        }
+
+        window.togglePhaseDetails = function(button, key) {
+            const content = document.getElementById(`phase-details-${key}`);
+            const isVisible = !content.classList.contains('hidden');
+            
+            if (isVisible) {
+                content.classList.add('hidden');
+                button.innerHTML = '📖 MAIS DETALHES (+5 XP)';
+            } else {
+                content.classList.remove('hidden');
+                button.innerHTML = '📚 MENOS DETALHES';
+                
+                if (!xpEarned.phases[key]) {
+                    const phaseName = diamondPhases[key].title;
+                    awardXP('phases', key, 5, `🎯 +5 XP - Você explorou a fase ${phaseName}!`);
+                }
+            }
+        }
+
+        function generateDiamondPhases() {
+            const container = document.getElementById('phasesGrid');
+            if(!container) return;
+
+            const headerColors = {
+                discover: '#1CB0F6',
+                define: '#58CC02',
+                develop: '#FFC800',
+                deliver: 'var(--duolingo-purple)'
+            };
+            
+            Object.entries(diamondPhases).forEach(([key, phase]) => {
+                const phaseCard = document.createElement('div');
+                phaseCard.className = `phase-card phase-${key}`;
+                
+                phaseCard.innerHTML = `
+                    <div class="phase-header" style="background:${headerColors[key]}">
+                        <div class="phase-icon">${phase.icon}</div>
+                        <h3 class="phase-title" style="${key === 'develop' ? 'color: #2B2B2B !important;' : ''}">${phase.title}</h3>
+                    </div>
+                    <div class="phase-body">
+                        <div style="flex-grow: 1;">
+                            <p style="margin-bottom: 1rem;">${phase.description}</p>
+                        </div>
+                        <button class="btn btn--primary" onclick="togglePhaseDetails(this, '${key}')" style="margin-top: 1rem;">
+                            📖 MAIS DETALHES (+5 XP)
+                        </button>
+                        
+                        <div class="more-details-content hidden" id="phase-details-${key}">
+                            <h4 style="margin: 0 0 1rem 0; font-size: 1.1rem;">Análise Detalhada:</h4>
+                            <p style="margin-bottom: 1.5rem; line-height: 1.6;">${phase.detailedContent}</p>
+                            
+                            <h4 style="margin: 0 0 0.5rem 0;">Atividades Principais:</h4>
+                            <ul style="list-style: none; margin-top: 1rem; padding: 0;">
+                                ${phase.activities.map(activity => `<li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;"><span style="position: absolute; left: 0; color: var(--duolingo-green); font-weight: bold;">✓</span>${activity}</li>`).join('')}
+                            </ul>
+                            <h4 style="margin: 1rem 0 0.5rem 0;">Resultado:</h4>
+                            <p style="font-style: italic;" class="section-description">${phase.outcomes}</p>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(phaseCard);
+            });
+        }
+
+        window.togglePrototypeDetails = function(button, index) {
+            const details = document.getElementById(`prototype-details-${index}`);
+            const isVisible = !details.classList.contains('hidden');
+            
+            if (isVisible) {
+                details.classList.add('hidden');
+                button.innerHTML = '🔍 VER DETALHES COMPLETOS (+15 XP)';
+            } else {
+                details.classList.remove('hidden');
+                button.innerHTML = '📚 OCULTAR DETALHES';
+                
+                if (!xpEarned.prototypes[index]) {
+                    awardXP('prototypes', index, 15, `🚀 +15 XP - Protótipo ${index + 1} analisado com sucesso!`);
+                }
+            }
+        }
+
+        function generatePrototypes() {
+            const container = document.getElementById('prototypesGrid');
+            if(!container) return;
+            
+            prototypes.forEach((prototype, index) => {
+                const prototypeCard = document.createElement('div');
+                prototypeCard.className = 'prototype-card';
+                
+                const resultBgColor = {
+                    'success': 'var(--duolingo-green)',
+                    'failure': 'var(--duolingo-red)', 
+                    'partial': 'var(--duolingo-yellow)'
+                }[prototype.result] || 'var(--duolingo-yellow)';
+                 const resultTextColor = prototype.result === 'partial' ? 'var(--text-primary)' : 'white';
+                
+                prototypeCard.innerHTML = `
+                    <div style="background: linear-gradient(135deg, var(--duolingo-text-success), var(--duolingo-text-link)); color: white; padding: 1.5rem; text-align: center;">
+                        <div style="font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; color: white !important;">#${index + 1}</div>
+                        <div style="font-size: 0.9rem; opacity: 0.9; margin-top: 0.5rem; color: white !important;">${prototype.year}</div>
+                    </div>
+                    <div style="padding: 2rem; flex-grow: 1; display: flex; flex-direction: column;">
+                        <div style="flex-grow: 1;">
+                            <h3 style="margin-bottom: 1rem; font-size: 1.3rem; font-weight: 700; text-align: center;">${prototype.name}</h3>
+                            <p class="section-description" style="margin-bottom: 1rem;">${prototype.description}</p>
+                            <div style="background: ${resultBgColor}; color: ${resultTextColor} !important; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin: 1rem 0; display: inline-block;">${prototype.resultText}</div>
+                            <p style="margin-top: 1rem; font-style: italic;"><strong style="font-weight: bold;">Aprendizado:</strong> ${prototype.learning}</p>
+                        </div>
+                        <button class="btn btn--primary" onclick="togglePrototypeDetails(this, ${index})" style="margin-top: 1rem; width: 100%;">
+                            🔍 VER DETALHES COMPLETOS (+15 XP)
+                        </button>
+                        
+                        <div class="prototype-expanded hidden" id="prototype-details-${index}">
+                            <h4 style="margin-bottom: 1rem;">Análise Detalhada:</h4>
+                            <p style="line-height: 1.6;">${prototype.details}</p>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(prototypeCard);
+            });
+        }
+
+        window.toggleCompetitorDetails = function(competitorKey) {
+            const details = document.getElementById(`competitor-details-${competitorKey}`);
+            const isVisible = !details.classList.contains('hidden');
+            
+            if (isVisible) {
+                details.classList.add('hidden');
+            } else {
+                details.classList.remove('hidden');
+                
+                if (!xpEarned.competitors[competitorKey]) {
+                    const competitorName = competitorsData[competitorKey].name;
+                    awardXP('competitors', competitorKey, 10, `🏆 +10 XP - Você analisou ${competitorName}!`);
+                }
+            }
+        }
+
+        function generateCompetitors() {
+            const container = document.getElementById('competitorsGrid');
+            if(!container) return;
+            
+            Object.entries(competitorsData).forEach(([key, competitor]) => {
+                const competitorCard = document.createElement('div');
+                competitorCard.className = 'competitor-card';
+                const badgeTextColor = competitor.model === "Premium pago" ? 'var(--text-primary)' : 'white';
+                
+                competitorCard.innerHTML = `
+                    <div style="flex-grow: 1;">
+                        <img src="${competitor.iconUrl}" alt="Logo do ${competitor.name}" class="competitor-icon">
+                        <h3 style="margin-bottom: 0.5rem; font-size: 1.3rem; font-weight: 700;">${competitor.name}</h3>
+                        <div class="section-description" style="font-size: 0.9rem; margin-bottom: 1rem;">Fundado em ${competitor.founded}</div>
+                        <p class="section-description" style="margin-bottom: 1rem;">${competitor.description}</p>
+                        <div style="background: ${competitor.badge_color}; color: ${badgeTextColor} !important; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-top: 1rem; display: inline-block;">${competitor.model}</div>
+                    </div>
+                    <button class="btn btn--primary" onclick="toggleCompetitorDetails('${key}')" style="margin-top: 1.5rem; width: 100%;">
+                        🎯 VEJA OS DIFERENCIAIS (+10 XP)
+                    </button>
+                    
+                    <div class="competitor-expanded hidden" id="competitor-details-${key}">
+                        <h4 style="margin-bottom: 1rem; font-size: 1.1rem;">📊 Diferenciais e Métricas (2011)</h4>
+                        
+                        <p style="line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem;">${competitor.details}</p>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem;">
+                            ${Object.entries(competitor.metrics_2011).map(([key, value]) => {
+                                const icons = {
+                                    revenue: '💰', employees: '👥', active_users: '👥', users: '👥',
+                                    kiosks: '🏪', market_share: '📊', pricing: '💲',
+                                    founded: '🏢', languages: '🌍', strategy: '🎯',
+                                    funding: '💼', model: '📈', differentiator: '⭐',
+                                    community: '👥', partnership: '🤝', technology: '🔬',
+                                    founders: '👨‍💼'
+                                };
+                                const icon = icons[key] || '📈';
+                                return `
+                                    <div style="background: var(--bg-card); padding: 1rem; border-radius: 8px; text-align: center; border: 2px solid var(--border-color);">
+                                        <div style="font-size: 1.2rem; margin-bottom: 0.5rem;">${icon}</div>
+                                        <div style="font-weight: 600; font-size: 0.85rem; margin-bottom: 0.3rem;">${value}</div>
+                                        <div class="section-description" style="font-size: 0.7rem; text-transform: capitalize;">${key.replace('_', ' ')}</div>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                        
+                        <button onclick="toggleCompetitorDetails('${key}')" class="btn" style="background: var(--text-secondary); margin-top: 1rem; width: 100%;">
+                            📚 FECHAR DETALHES
+                        </button>
+                    </div>
+                `;
+                container.appendChild(competitorCard);
+            });
+        }
+
+        window.accessSource = function(title, url, index) {
+            window.open(url, '_blank');
+            if (!xpEarned.sources[index]) {
+                awardXP('sources', index, 1, `📚 +1 XP - Fonte acessada!`);
+            }
+        }
+        
+        function generateSources() {
+            const container = document.getElementById('sourcesGrid');
+            if(!container) return;
+            
+            sourcesData.forEach((source, index) => {
+                const sourceCard = document.createElement('div');
+                sourceCard.className = `source-card source-${source.category}`;
+                sourceCard.setAttribute('data-category', source.category);
+                sourceCard.setAttribute('data-date', source.date);
+                
+                const dateObj = new Date(source.date);
+                const isRecent = (new Date() - dateObj) < (730 * 24 * 60 * 60 * 1000); // Less than 2 years
+                if (isRecent) {
+                    sourceCard.classList.add('source-recent');
+                }
+                
+                sourceCard.innerHTML = `
+                    <div style="flex-grow: 1;">
+                        <div style="position: absolute; top: 1rem; right: 1rem; background: var(--duolingo-purple); color: white !important; padding: 4px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 600;">${source.type}</div>
+                        <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem; font-weight: 700; text-align: center;">${source.title}</h3>
+                        <div style="color: var(--duolingo-text-link); font-weight: 500; word-break: break-word; font-size: 0.9rem; margin: 0.5rem 0;">
+                            ${source.link}
+                        </div>
+                        <div style="background: var(--duolingo-yellow); color: var(--text-primary) !important; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin: 1rem 0; display: inline-block;">${formatDate(source.date)}</div>
+                        <p class="section-description" style="font-style: italic; margin-top: 1rem;">${source.description}</p>
+                    </div>
+                    <button onclick="accessSource('${source.title.replace(/'/g, "\\'")}', '${source.link}', ${index})" class="btn btn--primary" style="margin-top: 1rem; width: 100%; justify-content: center;">
+                        🔗 ACESSAR FONTE (+1 XP)
+                    </button>
+                `;
+                container.appendChild(sourceCard);
+            });
+        }
+        
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('pt-BR', options);
+        }
+
+        window.filterSources = function(filter, event) {
+            const cards = document.querySelectorAll('.source-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-pressed', 'false');
+            });
+            if (event && event.target) {
+                 event.target.classList.add('active');
+                 event.target.setAttribute('aria-pressed', 'true');
+            }
+           
+            cards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                const dateObj = new Date(card.getAttribute('data-date'));
+const isRecent = (new Date() - dateObj) < (730 * 24 * 60 * 60 * 1000); // Less than 2 years
+
+                let show = false;
+                switch(filter) {
+                    case 'all': show = true; break;
+                    case 'primary': show = category === 'primary'; break;
+                    case 'secondary': show = category === 'secondary'; break;
+                    case 'recent': show = isRecent; break;
+                }
+                
+                card.style.display = show ? 'flex' : 'none';
+            });
+            
+            if (!xpEarned.filters[filter]) {
+                const filterNames = {'all': 'Todas', 'primary': 'Primárias', 'secondary': 'Secundárias', 'recent': 'Recentes'};
+                awardXP('filters', filter, 5, `🔍 +5 XP - Fontes filtradas por ${filterNames[filter]}!`);
+            }
+        }
+        
+        window.toggleDDDetails = function(phase) {
+            const details = document.getElementById(`dd-${phase}`);
+            const isVisible = !details.classList.contains('hidden');
+            
+            if (isVisible) {
+                details.classList.add('hidden');
+            } else {
+                details.classList.remove('hidden');
+                
+                if (!xpEarned.ddIntro[phase]) {
+                    const phaseNames = {'discover': 'Descobrir', 'define': 'Definir', 'develop': 'Desenvolver', 'deliver': 'Entregar'};
+                    awardXP('ddIntro', phase, 10, `💎 +10 XP - Você aprendeu sobre ${phaseNames[phase]}!`);
+                }
+            }
+        };
+
+        // ===== UTILITÁRIOS =====
+        
+        function updateReadingProgress() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercentage = (scrollTop / scrollHeight) * 100;
+            
+            const readingProgress = document.getElementById('reading-progress');
+            if (readingProgress) {
+                readingProgress.style.width = scrollPercentage + '%';
+            }
+        }
+
+        // Section Observer for Nav Links
+        function setupNavObserver() {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            if (navLinks.length === 0 || sections.length === 0) return;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, {
+                rootMargin: '-140px 0px -40% 0px'
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        }
+
+        function setupMobileMenu() {
+            const toggleBtn = document.getElementById('mobile-menu-toggle');
+            const navHeader = document.getElementById('secondary-header');
+            const navOverlay = document.getElementById('nav-overlay');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const body = document.body;
+
+            if (toggleBtn && navHeader && navOverlay) {
+                const toggleMenu = () => {
+                    const isOpen = navHeader.classList.toggle('open');
+                    navOverlay.classList.toggle('open');
+                    body.classList.toggle('menu-open');
+                    toggleBtn.textContent = isOpen ? '✕' : '☰';
+                    toggleBtn.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+                };
+
+                toggleBtn.addEventListener('click', toggleMenu);
+                navOverlay.addEventListener('click', toggleMenu);
+
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (navHeader.classList.contains('open')) {
+                            toggleMenu();
+                        }
+                    });
+                });
+            }
+        }
+        
+        function setupBackToTop() {
+            const backToTopBtn = document.getElementById('backToTop');
+            if(!backToTopBtn) return;
+            
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+        
+        // ===== INICIALIZAÇÃO =====
+        function initializeApp() {
+            initThemeSystem();
+            generateTimeline();
+            generateDiamondPhases();
+            generatePrototypes();
+            generateCompetitors();
+            generateSources();
+            setupBackToTop();
+            setupNavObserver();
+            setupMobileMenu();
+            
+            window.addEventListener('scroll', updateReadingProgress);
+            
+            const firstClickBtn = document.getElementById('firstClickBtn');
+            if (firstClickBtn) {
+                firstClickBtn.addEventListener('click', function() {
+                    if (!xpEarned.firstClick) {
+                        awardXP('firstClick', null, 10, '🎉 +10 XP - Primeiro clique! Bem-vindo à jornada!');
+                        this.disabled = true;
+                        this.style.opacity = '0.6';
+                        this.innerHTML = '✅ CLIQUE REALIZADO!';
+                        this.style.cursor = 'not-allowed';
+                    }
+                });
+            }
+            
+            updateXPDisplay();
+        }
+        
+        document.addEventListener('DOMContentLoaded', initializeApp);
+    </script>
+</body>
+</html>
+
