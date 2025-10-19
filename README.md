@@ -81,7 +81,7 @@ Inspired by Duolingo's gamification approach, the entire experience rewards user
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/your-username/duolingo-discovery.git
+git clone https://github.com/ehgzao/duolingo-double-diamond
 cd duolingo-discovery
 ```
 
@@ -135,7 +135,7 @@ xdg-open index.html # Linux
 
 ### Academic Sources
 
-All 8 sources are cited within the application with:
+All sources are cited within the application with:
 - Publication date
 - Source type (Primary/Secondary/Recent)
 - Direct links to original content
@@ -165,7 +165,7 @@ This project is for **educational purposes only**.
 
 **Made with ❤️ by Cristiana, Gabi, Gabriel & Teresa**
 
-**Powered with 🤖 by Perplexity**
+**Powered with 🤖 by Perplexity and Claude**
 
 [![Star this repo](https://img.shields.io/github/stars/your-username/duolingo-discovery?style=social)](../../stargazers)
 [![Fork this repo](https://img.shields.io/github/forks/your-username/duolingo-discovery?style=social)](../../fork)
@@ -181,7 +181,7 @@ This project is for **educational purposes only**.
 - 🎮 Full gamification system
 - 🎨 Light/Dark theme support
 - 📱 Fully responsive design
-- 📚 8 academic sources cited
+- 📚 Academic sources cited
 - 🏆 Victory modal with confetti
 - 🦉 Duolingo-inspired design system
 
